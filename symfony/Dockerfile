@@ -52,6 +52,7 @@ RUN version=$(php -r "echo PHP_MAJOR_VERSION.PHP_MINOR_VERSION;") \
 COPY --from=0 /usr/bin/composer /usr/bin/composer
 COPY docker/php/php.ini /usr/local/etc/php/php.ini
 COPY docker/php/docker-entrypoint.sh /usr/local/bin/docker-entrypoint
+COPY docker/php/zz-blackfire.ini $PHP_INI_DIR/conf.d/zz-blackfire.ini
 RUN chmod +x /usr/local/bin/docker-entrypoint
 
 
